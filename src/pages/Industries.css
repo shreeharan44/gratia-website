@@ -1,0 +1,25 @@
+/* Industries Page */
+.industries-page-grid {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.industry-page-card {
+    padding: 2rem;
+    background: #f8fafc;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent);
+}
+
+@media (max-width: 768px) {
+    .industries-page-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .industry-page-card {
+        padding: 1.5rem;
+    }
+}

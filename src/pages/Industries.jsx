@@ -1,4 +1,5 @@
 import React from 'react';
+import './Industries.css';
 
 const Industries = () => {
     const industries = [
@@ -14,9 +15,9 @@ const Industries = () => {
             <div className="container">
                 <span className="subtitle">Global Applications</span>
                 <h1>Industries We Serve</h1>
-                <div style={{ marginTop: '3rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
+                <div className="industries-page-grid">
                     {industries.map((ind, i) => (
-                        <div key={i} style={{ padding: '2rem', background: '#f8fafc', borderRadius: '4px', borderLeft: '4px solid var(--accent)' }}>
+                        <div key={i} className="industry-page-card">
                             <h3 style={{ marginBottom: '1rem' }}>{ind.title}</h3>
                             <p style={{ margin: 0 }}>{ind.desc}</p>
                         </div>

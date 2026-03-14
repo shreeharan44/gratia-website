@@ -1,4 +1,5 @@
 import React from 'react';
+import './About.css';
 
 const About = () => {
     return (
@@ -6,7 +7,7 @@ const About = () => {
             <div className="container">
                 <span className="subtitle">Our Heritage</span>
                 <h1>About Gratia Minerals</h1>
-                <div className="content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', marginTop: '3rem' }}>
+                <div className="about-content-grid">
                     <div>
                         <p style={{ fontSize: '1.125rem', marginBottom: '2rem' }}>
                             Gratia Minerals is a premier supplier of high-grade industrial minerals, serving the global manufacturing sector for over two decades. Our commitment to technical excellence and logistics reliability has made us a trusted partner for Fortune 500 companies.

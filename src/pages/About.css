@@ -1,0 +1,18 @@
+/* About Page */
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-content-grid > div:last-child {
+        padding: 2rem !important;
+    }
+}

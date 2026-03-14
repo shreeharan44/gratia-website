@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
+import './Contact.css';
 
 const Contact = () => {
     const [searchParams] = useSearchParams();
@@ -78,7 +79,6 @@ const Contact = () => {
 
         try {
             const formDataToSend = new FormData();
-            // TODO: Ensure a real Web3Forms Access Key is placed here for production
             formDataToSend.append('access_key', '82c0a740-e07b-49f5-ac4a-45413cd780b3');
             formDataToSend.append('subject', 'New Product Inquiry from Website');
             formDataToSend.append('Name', formData.name);
@@ -130,33 +130,33 @@ const Contact = () => {
                 <span className="subtitle">Get In Touch</span>
                 <h1>Contact Us</h1>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '5rem', marginTop: '4rem' }}>
-                    <div>
+                <div className="contact-layout">
+                    {/* Contact Info Sidebar */}
+                    <div className="contact-info">
                         <p style={{ marginBottom: '3rem' }}>
                             Our technical experts are available to discuss your specific requirements, provide documentation, and arrange for samples.
                         </p>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                            <div style={{ display: 'flex', gap: '1.5rem' }}>
-                                <div style={{ color: 'var(--accent)' }}><MapPin size={24} /></div>
+                        <div className="contact-details">
+                            <div className="contact-detail-item">
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><MapPin size={24} /></div>
                                 <div>
                                     <h4 style={{ marginBottom: '0.5rem' }}>Head Office</h4>
-                                    <p style={{ fontSize: '0.875rem' }}>Gratia Aeterna trading CO
-                                        NO: 13 ,Stalin Nagar
-                                        Athipatu Railway Station Road, Chennai 601203, Tamil Nadu
-
-                                        .</p>
+                                    <p style={{ fontSize: '0.875rem' }}>Gratia Aeterna trading CO<br />
+                                        NO: 13, Stalin Nagar<br />
+                                        Athipatu Railway Station Road,<br />
+                                        Chennai 601203, Tamil Nadu</p>
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', gap: '1.5rem' }}>
-                                <div style={{ color: 'var(--accent)' }}><Phone size={24} /></div>
+                            <div className="contact-detail-item">
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Phone size={24} /></div>
                                 <div>
                                     <h4 style={{ marginBottom: '0.5rem' }}>GST number</h4>
                                     <p style={{ fontSize: '0.875rem' }}>33ETTPA1082G1ZS1</p>
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', gap: '1.5rem' }}>
-                                <div style={{ color: 'var(--accent)' }}><Mail size={24} /></div>
+                            <div className="contact-detail-item">
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Mail size={24} /></div>
                                 <div>
                                     <h4 style={{ marginBottom: '0.5rem' }}>Email Inquiries</h4>
                                     <p style={{ fontSize: '0.875rem' }}>gratiaaeterna@gmail.com</p>
@@ -165,44 +165,81 @@ const Contact = () => {
                         </div>
                     </div>
 
-                    <div style={{ background: 'white', border: '1px solid var(--border-light)', padding: '3rem', borderRadius: '4px' }}>
+                    {/* Inquiry Form */}
+                    <div className="contact-form-box">
                         <h3 style={{ marginBottom: '2rem' }}>Send Inquiry</h3>
 
                         {submitStatus === 'success' ? (
-                            <div style={{ padding: '2rem', background: '#e6f4ea', color: '#137333', borderRadius: '4px', textAlign: 'center' }}>
+                            <div className="form-success-msg">
                                 <p style={{ margin: 0, fontSize: '1.1rem', fontWeight: '500' }}>Thank you for your inquiry. Our team will contact you within 24 hours.</p>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                            <form onSubmit={handleSubmit} className="inquiry-form">
                                 <input type="checkbox" name="botcheck" style={{ display: 'none' }} checked={formData.botcheck} onChange={handleChange} />
 
-                                <div style={{ gridColumn: 'span 1' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Name <span style={{ color: 'red' }}>*</span></label>
-                                    <input type="text" name="name" value={formData.name} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: errors.name ? '1px solid red' : '1px solid var(--border-light)' }} placeholder="Your Name" />
-                                    {errors.name && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.name}</span>}
+                                {/* Row 1: Name + Company */}
+                                <div className="form-group">
+                                    <label className="form-label">Name <span className="required">*</span></label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className={`form-input${errors.name ? ' input-error' : ''}`}
+                                        placeholder="Your Name"
+                                    />
+                                    {errors.name && <span className="error-text">{errors.name}</span>}
                                 </div>
 
-                                <div style={{ gridColumn: 'span 1' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Company Name <span style={{ color: 'red' }}>*</span></label>
-                                    <input type="text" name="company" value={formData.company} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: errors.company ? '1px solid red' : '1px solid var(--border-light)' }} placeholder="Your Company" />
-                                    {errors.company && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.company}</span>}
+                                <div className="form-group">
+                                    <label className="form-label">Company Name <span className="required">*</span></label>
+                                    <input
+                                        type="text"
+                                        name="company"
+                                        value={formData.company}
+                                        onChange={handleChange}
+                                        className={`form-input${errors.company ? ' input-error' : ''}`}
+                                        placeholder="Your Company"
+                                    />
+                                    {errors.company && <span className="error-text">{errors.company}</span>}
                                 </div>
 
-                                <div style={{ gridColumn: 'span 1' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Email <span style={{ color: 'red' }}>*</span></label>
-                                    <input type="email" name="email" value={formData.email} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: errors.email ? '1px solid red' : '1px solid var(--border-light)' }} placeholder="you@company.com" />
-                                    {errors.email && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.email}</span>}
+                                {/* Row 2: Email + Phone */}
+                                <div className="form-group">
+                                    <label className="form-label">Email <span className="required">*</span></label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className={`form-input${errors.email ? ' input-error' : ''}`}
+                                        placeholder="you@company.com"
+                                    />
+                                    {errors.email && <span className="error-text">{errors.email}</span>}
                                 </div>
 
-                                <div style={{ gridColumn: 'span 1' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Phone / WhatsApp <span style={{ color: 'red' }}>*</span></label>
-                                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: errors.phone ? '1px solid red' : '1px solid var(--border-light)' }} placeholder="+1 (555) 000-0000" />
-                                    {errors.phone && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.phone}</span>}
+                                <div className="form-group">
+                                    <label className="form-label">Phone / WhatsApp <span className="required">*</span></label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className={`form-input${errors.phone ? ' input-error' : ''}`}
+                                        placeholder="+1 (555) 000-0000"
+                                    />
+                                    {errors.phone && <span className="error-text">{errors.phone}</span>}
                                 </div>
 
-                                <div style={{ gridColumn: 'span 1' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Industry Type</label>
-                                    <select name="industry" value={formData.industry} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: '1px solid var(--border-light)', backgroundColor: 'white' }}>
+                                {/* Row 3: Industry + Product */}
+                                <div className="form-group">
+                                    <label className="form-label">Industry Type</label>
+                                    <select
+                                        name="industry"
+                                        value={formData.industry}
+                                        onChange={handleChange}
+                                        className="form-input form-select"
+                                    >
                                         <option value="">Select Industry</option>
                                         <option value="Electrical Industry">Electrical Industry</option>
                                         <option value="Cosmetics Industry">Cosmetics Industry</option>
@@ -213,9 +250,14 @@ const Contact = () => {
                                     </select>
                                 </div>
 
-                                <div style={{ gridColumn: 'span 1' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Product <span style={{ color: 'red' }}>*</span></label>
-                                    <select name="product" value={formData.product} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: errors.product ? '1px solid red' : '1px solid var(--border-light)', backgroundColor: 'white' }}>
+                                <div className="form-group">
+                                    <label className="form-label">Product <span className="required">*</span></label>
+                                    <select
+                                        name="product"
+                                        value={formData.product}
+                                        onChange={handleChange}
+                                        className={`form-input form-select${errors.product ? ' input-error' : ''}`}
+                                    >
                                         <option value="">Select Product</option>
                                         <option value="Quartz">Quartz</option>
                                         <option value="Feldspar (Soda)">Feldspar (Soda)</option>
@@ -227,44 +269,71 @@ const Contact = () => {
                                         <option value="Tungsten">Tungsten</option>
                                         <option value="Niobium">Niobium</option>
                                     </select>
-                                    {errors.product && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.product}</span>}
+                                    {errors.product && <span className="error-text">{errors.product}</span>}
                                 </div>
 
-                                <div style={{ gridColumn: 'span 2' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Quantity Required</label>
-                                    <input type="text" name="quantity" value={formData.quantity} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: '1px solid var(--border-light)' }} placeholder="Enter quantity (kg / tons)" />
+                                {/* Full-width: Quantity */}
+                                <div className="form-group form-group-full">
+                                    <label className="form-label">Quantity Required</label>
+                                    <input
+                                        type="text"
+                                        name="quantity"
+                                        value={formData.quantity}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                        placeholder="Enter quantity (kg / tons)"
+                                    />
                                 </div>
 
-                                <div style={{ gridColumn: 'span 2' }}>
-                                    <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 700, marginBottom: '0.5rem', textTransform: 'uppercase' }}>Message</label>
-                                    <textarea name="message" value={formData.message} onChange={handleChange} style={{ width: '100%', padding: '0.75rem', border: '1px solid var(--border-light)', minHeight: '120px' }} placeholder="Please share your requirement details"></textarea>
+                                {/* Full-width: Message */}
+                                <div className="form-group form-group-full">
+                                    <label className="form-label">Message</label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        className="form-input form-textarea"
+                                        placeholder="Please share your requirement details"
+                                    />
                                 </div>
 
-                                <div style={{ gridColumn: 'span 2' }}>
-                                    <label style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.875rem', cursor: 'pointer' }}>
-                                        <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} style={{ marginTop: '0.25rem' }} />
-                                        <span>I agree to be contacted regarding my inquiry. <span style={{ color: 'red' }}>*</span></span>
+                                {/* Full-width: Consent */}
+                                <div className="form-group form-group-full">
+                                    <label className="consent-label">
+                                        <input
+                                            type="checkbox"
+                                            name="consent"
+                                            checked={formData.consent}
+                                            onChange={handleChange}
+                                        />
+                                        <span>I agree to be contacted regarding my inquiry. <span className="required">*</span></span>
                                     </label>
-                                    {errors.consent && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.consent}</span>}
+                                    {errors.consent && <span className="error-text">{errors.consent}</span>}
                                 </div>
 
-                                <div style={{ gridColumn: 'span 2' }}>
+                                {/* Full-width: reCAPTCHA */}
+                                <div className="form-group form-group-full recaptcha-wrapper">
                                     <ReCAPTCHA
                                         ref={recaptchaRef}
                                         sitekey="6LcAV4osAAAAAMPExwNtVrDRleqos6vN7Dtfoper"
                                         onChange={() => setErrors(prev => ({ ...prev, recaptcha: '' }))}
                                     />
-                                    {errors.recaptcha && <span style={{ color: 'red', fontSize: '0.75rem', marginTop: '0.25rem', display: 'block' }}>{errors.recaptcha}</span>}
+                                    {errors.recaptcha && <span className="error-text">{errors.recaptcha}</span>}
                                 </div>
 
                                 {submitStatus === 'error' && (
-                                    <div style={{ gridColumn: 'span 2', padding: '1rem', background: '#fce8e6', color: '#c5221f', borderRadius: '4px', fontSize: '0.875rem' }}>
+                                    <div className="form-group form-group-full form-error-msg">
                                         An error occurred while sending your request. Please check your data and try again.
                                     </div>
                                 )}
 
-                                <div style={{ gridColumn: 'span 2' }}>
-                                    <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ width: '100%', opacity: isSubmitting ? 0.7 : 1 }}>
+                                {/* Full-width: Submit */}
+                                <div className="form-group form-group-full">
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="btn btn-primary form-submit-btn"
+                                    >
                                         {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                                     </button>
                                 </div>

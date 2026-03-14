@@ -46,6 +46,19 @@
     opacity: 0.8;
 }
 
+.logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+/* Optionally invert/brighten logo when navbar is dark (scrolled) */
+.navbar.scrolled .logo-img {
+    filter: brightness(0) invert(1);
+}
+
 .nav-links {
     display: flex;
     align-items: center;
