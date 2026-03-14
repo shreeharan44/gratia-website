@@ -66,7 +66,7 @@ const Footer = () => {
                         </li>
                         <li>
                             <Globe size={18} className="contact-icon" />
-                            <span>www.gratiaminerals.com</span>
+                            <span>www.gratiaaeterna.com</span>
                         </li>
                     </ul>
                 </div>
