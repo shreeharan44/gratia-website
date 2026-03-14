@@ -165,8 +165,14 @@
         margin-top: 2rem;
     }
 
+    /* Form appears first on mobile */
     .contact-form-box {
+        order: -1;
         padding: 1.5rem;
+    }
+
+    .contact-info {
+        order: 1;
     }
 
     /* Stack form to single column on mobile */
