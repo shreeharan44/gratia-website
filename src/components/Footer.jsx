@@ -94,6 +94,13 @@ const Footer = () => {
               <Globe size={16} className="contact-icon" />
               <span>www.gratiaaeterna.com</span>
             </li>
+            <li>
+              <Linkedin size={16} className="contact-icon" />
+              <a href="https://www.linkedin.com/in/gratia-aeterna-trading-co-a09b91262?utm_source=share_via&utm_content=profile&utm_medium=member_ios
+" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                Follow us on LinkedIn
+              </a>
+            </li>
           </ul>
         </div>
       </div>

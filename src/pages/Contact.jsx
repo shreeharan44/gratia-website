@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin, MessageCircle, Receipt } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Receipt, Linkedin } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
@@ -174,7 +174,7 @@ const Contact = () => {
                                 <div style={{ color: 'var(--accent)', flexShrink: 0 }}><MessageCircle size={24} /></div>
                                 <div>
                                     <h4 style={{ marginBottom: '0.5rem' }}>WhatsApp</h4>
-                                    <p style={{ fontSize: '0.875rem' }}>+260 969065588</p>
+                                    <p style={{ fontSize: '0.875rem' }}>+91 82332 51241</p>
                                 </div>
                             </div>
                             {/* Email */}
@@ -182,7 +182,19 @@ const Contact = () => {
                                 <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Mail size={24} /></div>
                                 <div>
                                     <h4 style={{ marginBottom: '0.5rem' }}>Email Inquiries</h4>
-                                    <p style={{ fontSize: '0.875rem' }}>gratiaaeterna@gmail.com</p>
+                                    <p style={{ fontSize: '0.875rem' }}>info@gratiaaeterna.com</p>
+                                </div>
+                            </div>
+                            {/* LinkedIn */}
+                            <div className="contact-detail-item">
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Linkedin size={24} /></div>
+                                <div>
+                                    <h4 style={{ marginBottom: '0.5rem' }}>LinkedIn</h4>
+                                    <p style={{ fontSize: '0.875rem' }}>
+                                        <a href="https://www.linkedin.com/in/gratia-aeterna-trading-co-a09b91262?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                            Connect with us on LinkedIn
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
