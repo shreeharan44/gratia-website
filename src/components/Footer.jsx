@@ -9,7 +9,11 @@ const Footer = () => {
       <div className="container footer-grid">
         <div className="footer-info">
           <Link to="/" className="logo footer-logo">
-            <img src="/logo.svg" alt="Gratia Aeterna Trading Co." className="logo-img" />
+            <Globe size={22} className="logo-globe" />
+            <div className="logo-text-wrap">
+              <span className="logo-main">GRATIA AETERNA</span>
+              <span className="logo-sub">TRADING CO</span>
+            </div>
           </Link>
           <p className="footer-description">
             Leading international supplier of premium industrial minerals and rare-earth elements.

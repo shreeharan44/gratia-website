@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, Globe } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -35,7 +35,11 @@ const Navbar = () => {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <Link to="/" className="logo">
-          <img src="/logo.svg" alt="Gratia Aeterna Trading Co." className="logo-img" />
+          <Globe size={22} className="logo-globe" />
+          <div className="logo-text-wrap">
+            <span className="logo-main">GRATIA AETERNA</span>
+            <span className="logo-sub">TRADING CO</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -64,7 +68,11 @@ const Navbar = () => {
       <div className={`mobile-nav ${isOpen ? 'open' : ''} mobile-only`}>
         <div className="mobile-nav-header">
           <Link to="/" className="logo" onClick={() => setIsOpen(false)}>
-            <img src="/logo.svg" alt="Gratia Aeterna Trading Co." className="logo-img" />
+            <Globe size={22} className="logo-globe" />
+            <div className="logo-text-wrap">
+              <span className="logo-main">GRATIA AETERNA</span>
+              <span className="logo-sub">TRADING CO</span>
+            </div>
           </Link>
           <button className="mobile-close" onClick={() => setIsOpen(false)} aria-label="Close menu">
             <X size={24} />
