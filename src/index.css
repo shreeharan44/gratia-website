@@ -1,17 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap');
 
 :root {
-  --primary: #0F1F2E;
+  --primary: #0D1F35;
+  --primary-dark: #091525;
+  --primary-mid: #1a3a5c;
   --secondary: #5E6A75;
-  --accent: #8B5E3C;
+  --accent: #C9A84C;
+  --accent-blue: #1a4b8c;
   --bg-white: #FFFFFF;
+  --bg-light: #F5F7FA;
   --text-dark: #1A1A1A;
   --text-muted: #5E6A75;
   --border-light: #E5E7EB;
-  
+
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Inter', sans-serif;
-  
+
   font-family: var(--font-body);
   line-height: 1.6;
   font-weight: 400;
@@ -39,8 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--primary);
   margin-top: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 p {
@@ -77,12 +80,14 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-weight: 600;
+  padding: 0.875rem 1.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.875rem;
-  border-radius: 2px;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  gap: 0.5rem;
 }
 
 .btn-primary {
@@ -91,18 +96,20 @@ button {
 }
 
 .btn-primary:hover {
-  background-color: #1a2f45;
+  background-color: var(--primary-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(13, 31, 53, 0.3);
 }
 
 .btn-outline {
-  border: 1px solid var(--primary);
-  color: var(--primary);
+  border: 2px solid white;
+  color: white;
   background-color: transparent;
 }
 
 .btn-outline:hover {
-  background-color: var(--primary);
-  color: white;
+  background-color: white;
+  color: var(--primary);
 }
 
 .btn-accent {
@@ -111,11 +118,89 @@ button {
 }
 
 .btn-accent:hover {
-  background-color: #a06e4a;
+  background-color: #b8912f;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+}
+
+/* Page hero banner for inner pages */
+.page-hero {
+  background: linear-gradient(rgba(9, 21, 37, 0.82), rgba(9, 21, 37, 0.82)),
+    url('/assets/images/image1.png');
+  background-size: cover;
+  background-position: center;
+  padding: 120px 0 80px;
+  color: white;
+  margin-top: -80px;
+}
+
+.page-hero h1 {
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+
+.page-hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.125rem;
+  max-width: 650px;
+  margin: 0;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-header.centered {
+  text-align: center;
+}
+
+.subtitle {
+  display: block;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+}
+
+.section-header h2 {
+  font-size: 2.25rem;
+  margin: 0;
+  text-transform: none;
+}
+
+/* page-container generic  */
+.page-container {
+  padding-top: 9rem;
+}
+
+/* Divider */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent);
+  margin: 1.5rem 0 0;
+}
+
+.section-divider.centered {
+  margin: 1.5rem auto 0;
 }
 
 @media (max-width: 768px) {
   .section-padding {
     padding: 4rem 0;
+  }
+
+  .page-hero h1 {
+    font-size: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.75rem;
   }
 }

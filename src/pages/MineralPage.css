@@ -1,0 +1,347 @@
+.mineral-page {
+  padding-top: 80px;
+}
+
+/* ===== HERO ===== */
+.mineral-hero {
+  background-size: cover;
+  background-position: center;
+  padding: 90px 0 80px;
+  color: white;
+}
+
+.mineral-hero-content {
+  max-width: 760px;
+}
+
+.mineral-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.5rem;
+}
+
+.mineral-hero-breadcrumb a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mineral-hero-breadcrumb a:hover {
+  color: white;
+}
+
+.mineral-hero h1 {
+  color: white;
+  font-size: 3.25rem;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  text-transform: none;
+  font-weight: 800;
+}
+
+.mineral-hero-tagline {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-family: var(--font-heading);
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.mineral-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+.hero-badge svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.mineral-hero-cta {
+  font-size: 0.85rem;
+}
+
+/* ===== DESCRIPTION ===== */
+.mineral-desc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.mineral-desc-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-transform: none;
+  line-height: 1.25;
+}
+
+.mineral-desc-divider {
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.mineral-desc-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.mineral-desc-image {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+}
+
+.mineral-desc-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.mineral-image-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(9, 21, 37, 0.85));
+  padding: 2rem 1.5rem 1.25rem;
+}
+
+.mineral-image-tag span {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ===== APPLICATIONS ===== */
+.bg-mineral-alt {
+  background-color: var(--bg-light);
+}
+
+.mineral-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.mineral-app-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mineral-app-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mineral-app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  border-color: var(--accent);
+}
+
+.mineral-app-card:hover::before {
+  opacity: 1;
+}
+
+.mineral-app-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--border-light);
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.mineral-app-card span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.4;
+}
+
+/* ===== INDUSTRIES ===== */
+.mineral-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.mineral-industry-card {
+  background: var(--bg-light);
+  border-radius: 8px;
+  padding: 2rem;
+  border-left: 4px solid var(--accent);
+  transition: all 0.3s ease;
+}
+
+.mineral-industry-card:hover {
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
+}
+
+.mineral-industry-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+  text-transform: none;
+}
+
+.mineral-industry-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== CTA ===== */
+.mineral-cta-section {
+  background: var(--primary-dark);
+  padding: 5rem 0;
+}
+
+.mineral-cta-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.mineral-cta-content h2 {
+  color: white;
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  text-transform: none;
+  line-height: 1.3;
+}
+
+.mineral-cta-content p {
+  color: rgba(255,255,255,0.65);
+  font-size: 1rem;
+  margin: 0;
+  max-width: 520px;
+}
+
+.mineral-cta-actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255,255,255,0.35);
+  color: white;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .mineral-desc-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .mineral-cta-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mineral-cta-content p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mineral-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .mineral-hero-tagline {
+    font-size: 1rem;
+  }
+
+  .mineral-apps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mineral-desc-image img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mineral-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .mineral-apps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mineral-cta-actions {
+    width: 100%;
+  }
+
+  .mineral-cta-actions .btn,
+  .mineral-cta-actions .btn-outline-light {
+    flex: 1;
+    justify-content: center;
+  }
+}
