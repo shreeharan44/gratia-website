@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Receipt } from 'lucide-react';
 import { useSearchParams } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
@@ -138,23 +138,46 @@ const Contact = () => {
                         </p>
 
                         <div className="contact-details">
+                            {/* Address 1 */}
                             <div className="contact-detail-item">
                                 <div style={{ color: 'var(--accent)', flexShrink: 0 }}><MapPin size={24} /></div>
                                 <div>
                                     <h4 style={{ marginBottom: '0.5rem' }}>Head Office</h4>
-                                    <p style={{ fontSize: '0.875rem' }}>Gratia Aeterna trading CO<br />
+                                    <p style={{ fontSize: '0.875rem' }}>Gratia Aeterna Trading CO<br />
                                         NO: 13, Stalin Nagar<br />
                                         Athipatu Railway Station Road,<br />
                                         Chennai 601203, Tamil Nadu</p>
                                 </div>
                             </div>
+                            {/* Address 2 */}
                             <div className="contact-detail-item">
-                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Phone size={24} /></div>
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><MapPin size={24} /></div>
                                 <div>
-                                    <h4 style={{ marginBottom: '0.5rem' }}>GST number</h4>
-                                    <p style={{ fontSize: '0.875rem' }}>33ETTPA1082G1ZS1</p>
+                                    <h4 style={{ marginBottom: '0.5rem' }}>Business Hub</h4>
+                                    <p style={{ fontSize: '0.875rem' }}>Gratia Aeterna Trading CO<br />
+                                        NO: 3, Raj Nagar<br />
+                                        Near Gau Matha Square,<br />
+                                        Rajsamand 313324, Rajasthan</p>
                                 </div>
                             </div>
+                            {/* GST Numbers */}
+                            <div className="contact-detail-item">
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Receipt size={24} /></div>
+                                <div>
+                                    <h4 style={{ marginBottom: '0.5rem' }}>GST Numbers</h4>
+                                    <p style={{ fontSize: '0.875rem' }}>Tamil Nadu: 33ETTPA1082G1ZS<br />
+                                        Rajasthan: 08ETTPA1082G1ZL</p>
+                                </div>
+                            </div>
+                            {/* WhatsApp */}
+                            <div className="contact-detail-item">
+                                <div style={{ color: 'var(--accent)', flexShrink: 0 }}><MessageCircle size={24} /></div>
+                                <div>
+                                    <h4 style={{ marginBottom: '0.5rem' }}>WhatsApp</h4>
+                                    <p style={{ fontSize: '0.875rem' }}>+260 969065588</p>
+                                </div>
+                            </div>
+                            {/* Email */}
                             <div className="contact-detail-item">
                                 <div style={{ color: 'var(--accent)', flexShrink: 0 }}><Mail size={24} /></div>
                                 <div>

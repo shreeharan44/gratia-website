@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Globe, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe, Linkedin, Twitter, Facebook, MessageCircle, Receipt } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
@@ -57,9 +57,20 @@ const Footer = () => {
                     <ul className="contact-list">
                         <li>
                             <MapPin size={18} className="contact-icon" />
-                            <span>  NO: 13 ,Stalin Nagar<br />Athipatu Railway Station Road, Chennai 601203, Tamil Nadu</span>
+                            <span>NO: 13, Stalin Nagar<br />Athipatu Railway Station Road,<br />Chennai 601203, Tamil Nadu</span>
                         </li>
-
+                        <li>
+                            <MapPin size={18} className="contact-icon" />
+                            <span>NO: 3, Raj Nagar<br />Near Gau Matha Square,<br />Rajsamand 313324, Rajasthan</span>
+                        </li>
+                        <li>
+                            <Receipt size={18} className="contact-icon" />
+                            <span>GST (TN): 33ETTPA1082G1ZS<br />GST (RJ): 08ETTPA1082G1ZL</span>
+                        </li>
+                        <li>
+                            <MessageCircle size={18} className="contact-icon" />
+                            <span>+260 969065588</span>
+                        </li>
                         <li>
                             <Mail size={18} className="contact-icon" />
                             <span>gratiaaeterna@gmail.com</span>
